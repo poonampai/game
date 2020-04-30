@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-Hello poonam pratibha yash russsel
-=======
-Hello world from another dimension. 
->>>>>>> 6a830a1468bd790423d4e516590198d54b8437c1
+Hello poonam pratibha yash russel.
+Hello world from another dimension.
 yeh kya ho rha hai
