@@ -35,7 +35,6 @@ public class FlappyBird implements ActionListener,MouseListener,KeyListener
         addColumn(true);
         addColumn(true);
         addColumn(true);
-        s=false;
         t.start();
     }
     public void addColumn(boolean start)
@@ -135,8 +134,7 @@ public class FlappyBird implements ActionListener,MouseListener,KeyListener
                 end=true;
             }
         }
-        if(!s)
-            renderer.repaint();
+        renderer.repaint();
     }
     public void repaint(Graphics g)
     {
@@ -164,7 +162,6 @@ public class FlappyBird implements ActionListener,MouseListener,KeyListener
             g.drawString("Game Over", 100, h/2-50);
             g.drawString("Score: ", 175, 100);
             g.drawString(String.valueOf(score), w/2+100, 100);
-            s=true;
         }
         
         if(!end && start)
