@@ -1,5 +1,4 @@
 package flappybird;
-import java.lang.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -13,7 +12,7 @@ public class FlappyBird implements ActionListener,MouseListener,KeyListener
     public Rectangle bird;
     public ArrayList<Rectangle> columns;
     public int ticks,ymotion,score;
-    public boolean end,start,s;
+    public boolean end,start,gameOver;
     public Random r;
     public FlappyBird()
     {
@@ -35,6 +34,7 @@ public class FlappyBird implements ActionListener,MouseListener,KeyListener
         addColumn(true);
         addColumn(true);
         addColumn(true);
+        gameOver=false;
         t.start();
     }
     public void addColumn(boolean start)
@@ -134,7 +134,12 @@ public class FlappyBird implements ActionListener,MouseListener,KeyListener
                 end=true;
             }
         }
-        renderer.repaint();
+        if(gameOver) {
+            gameOver = false;
+            flappyBird = new FlappyBird();
+        }
+        if(!gameOver)
+            renderer.repaint();
     }
     public void repaint(Graphics g)
     {
@@ -162,6 +167,7 @@ public class FlappyBird implements ActionListener,MouseListener,KeyListener
             g.drawString("Game Over", 100, h/2-50);
             g.drawString("Score: ", 175, 100);
             g.drawString(String.valueOf(score), w/2+100, 100);
+            gameOver=true;
         }
         
         if(!end && start)
