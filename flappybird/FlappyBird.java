@@ -189,15 +189,15 @@ public class FlappyBird implements ActionListener,MouseListener,KeyListener
             jump();
     }
     @Override
-    public void mousePressed(MouseEvent e){}
+    public void mousePressed(MouseEvent e) {}
     @Override
-    public void mouseReleased(MouseEvent e){}
+    public void mouseReleased(MouseEvent e) {}
     @Override
-    public void mouseEntered(MouseEvent e){}
+    public void mouseEntered(MouseEvent e) {}
     @Override
-    public void mouseExited(MouseEvent e){}
+    public void mouseExited(MouseEvent e) {}
     @Override
-    public void keyTyped(KeyEvent e){}
+    public void keyTyped(KeyEvent e) {}
     @Override
-    public void keyPressed(KeyEvent e){}
+    public void keyPressed(KeyEvent e) {}
 }
