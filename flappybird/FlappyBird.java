@@ -12,7 +12,7 @@ public class FlappyBird implements ActionListener,MouseListener,KeyListener
     public Rectangle bird;
     public ArrayList<Rectangle> columns;
     public int ticks,ymotion,score;
-    public boolean end,start,gameOver;
+    public boolean end,start,gameOver,endScreen;
     public Random r;
     public FlappyBird()
     {
@@ -160,18 +160,27 @@ public class FlappyBird implements ActionListener,MouseListener,KeyListener
         
         g.setColor(Color.white); // draw the text
         g.setFont(new Font("Arial",1,100));
+
         if(!start) // helpful text at start of game
+        {
             g.drawString("Click to Start", 75, h/2-50);
+            g.setFont(new Font("Arial",1,50));
+            g.drawString("Use SpaceKey or Mouse to Play", 25, 125);
+        }
+        
         if(end) // helpful test at end of game
         {
             g.drawString("Game Over", 100, h/2-50);
             g.drawString("Score: ", 175, 100);
             g.drawString(String.valueOf(score), w/2+100, 100);
-            gameOver=true;
+            g.setFont(new Font("Arial",1,50));
+            g.drawString("Click to Retry", 225, h/2+25);
+            endScreen=true;
         }
         
         if(!end && start) // score test printed during game
             g.drawString(String.valueOf(score), w/2-25, 100);
+            
     }
     public static void main(String[] args)
     {
@@ -181,6 +190,10 @@ public class FlappyBird implements ActionListener,MouseListener,KeyListener
     public void mouseClicked(MouseEvent e) // use mouse to initiate jump
     {
         jump();
+        if(endScreen) { // allow the user to see the score before restarting
+            endScreen=false;
+            gameOver=true;
+        }
     }
     @Override
     public void keyReleased(KeyEvent e) // use spacebar key to initiate jump
