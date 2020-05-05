@@ -12,7 +12,7 @@ public class FlappyBird implements ActionListener,MouseListener,KeyListener
     public Rectangle bird;
     public ArrayList<Rectangle> columns;
     public int ticks,ymotion,score;
-    public boolean end,start,gameOver,endScreen;
+    public boolean end,start,gameOver;
     public Random r;
     public FlappyBird()
     {
@@ -134,10 +134,6 @@ public class FlappyBird implements ActionListener,MouseListener,KeyListener
                 end=true;
             }
         }
-        if(gameOver) {
-            gameOver = false;
-            flappyBird = new FlappyBird();
-        }
         if(!gameOver)
             renderer.repaint();
     }
@@ -175,7 +171,7 @@ public class FlappyBird implements ActionListener,MouseListener,KeyListener
             g.drawString(String.valueOf(score), w/2+100, 100);
             g.setFont(new Font("Arial",1,50));
             g.drawString("Click to Retry", 225, h/2+25);
-            endScreen=true;
+            gameOver=true;
         }
         
         if(!end && start) // score test printed during game
@@ -190,9 +186,9 @@ public class FlappyBird implements ActionListener,MouseListener,KeyListener
     public void mouseClicked(MouseEvent e) // use mouse to initiate jump
     {
         jump();
-        if(endScreen) { // allow the user to see the score before restarting
-            endScreen=false;
-            gameOver=true;
+        if(gameOver) { // allow the user to see the score before restarting
+            gameOver = false;
+            flappyBird = new FlappyBird();
         }
     }
     @Override
