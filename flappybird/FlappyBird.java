@@ -44,7 +44,7 @@ public class FlappyBird implements ActionListener,MouseListener,KeyListener
         int h1=50+r.nextInt(300);
         if(start)
         {
-            columns.add(new Rectangle(w+w1+columns.size()*300,h-h1-120,w1,h1));
+            columns.add(new Rectangle(w+w1+columns.size()*300, h-h1-120, w1, h1));
             columns.add(new Rectangle(w+w1+(columns.size()-1)*300,0,w1,h-h1-space));
         }
         else
@@ -90,7 +90,7 @@ public class FlappyBird implements ActionListener,MouseListener,KeyListener
         ticks++;
         if(start)
         {
-            for(int i=0;i<columns.size();i++) // cause cloumn motion in x axis
+            for(int i=0;i<columns.size();i++) // cause column motion in x axis
             {
                 Rectangle column=columns.get(i);
                 column.x-=speed;
