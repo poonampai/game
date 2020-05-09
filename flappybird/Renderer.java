@@ -9,9 +9,9 @@ public class Renderer extends JPanel
     private static final long serialVersionUID = -6973093079234550944L;
 
     @Override
-    protected void paintComponent(Graphics g)
+    protected void paintComponent(final Graphics g)
     {
-        super.paintComponent(g);
+        super.paintComponent(g); // calling parent function
         FlappyBird.flappyBird.repaint(g);
     }
 }
